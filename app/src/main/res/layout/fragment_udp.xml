@@ -5,68 +5,112 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="vertical" android:padding="16dp">
 
-        <!-- 서버 설정 카드 -->
+        <!-- 서버 설정 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:padding="16dp"
-            android:layout_marginBottom="12dp" android:background="@drawable/bg_card">
+            android:layout_marginBottom="10dp" android:background="@drawable/bg_card">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="UDP 서버 설정" android:textSize="13sp" android:textStyle="bold"
                 android:textColor="@color/accent" android:layout_marginBottom="12dp"/>
-
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="서버 IP 주소" android:textSize="11sp" android:textColor="@color/muted"
+                android:text="서버 IP" android:textSize="11sp" android:textColor="@color/muted"
                 android:layout_marginBottom="4dp"/>
-            <EditText android:id="@+id/etUdpIp"
-                android:layout_width="match_parent" android:layout_height="48dp"
-                android:text="192.168.1.100"
+            <EditText android:id="@+id/etUdpIp" android:layout_width="match_parent"
+                android:layout_height="48dp" android:text="192.168.1.100"
                 android:textColor="@color/text_color" android:textSize="15sp"
                 android:fontFamily="monospace" android:background="@drawable/bg_card"
-                android:padding="12dp" android:inputType="text"
-                android:layout_marginBottom="12dp"/>
-
+                android:padding="12dp" android:inputType="text" android:layout_marginBottom="10dp"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="포트 번호" android:textSize="11sp" android:textColor="@color/muted"
+                android:text="포트" android:textSize="11sp" android:textColor="@color/muted"
                 android:layout_marginBottom="4dp"/>
-            <EditText android:id="@+id/etUdpPort"
-                android:layout_width="match_parent" android:layout_height="48dp"
-                android:text="5000"
+            <EditText android:id="@+id/etUdpPort" android:layout_width="match_parent"
+                android:layout_height="48dp" android:text="5000"
                 android:textColor="@color/text_color" android:textSize="15sp"
                 android:fontFamily="monospace" android:background="@drawable/bg_card"
-                android:padding="12dp" android:inputType="number"
-                android:layout_marginBottom="16dp"/>
-
+                android:padding="12dp" android:inputType="number" android:layout_marginBottom="14dp"/>
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="12dp">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:text="자동 전송 (검침 수신 시)"
                     android:textSize="13sp" android:textColor="@color/text_color"/>
                 <androidx.appcompat.widget.SwitchCompat android:id="@+id/switchAutoSend"
-                    android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"/>
             </LinearLayout>
-
-            <Button android:id="@+id/btnSaveSettings"
-                android:layout_width="match_parent" android:layout_height="44dp"
-                android:text="설정 저장" android:textSize="13sp"
+            <Button android:id="@+id/btnSaveSettings" android:layout_width="match_parent"
+                android:layout_height="44dp" android:text="설정 저장"
                 android:textColor="@color/white" android:backgroundTint="@color/accent2"
                 style="@style/Widget.MaterialComponents.Button"/>
         </LinearLayout>
 
-        <!-- 전송 상태 카드 -->
+        <!-- 단말기 정보 설정 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:padding="16dp"
-            android:layout_marginBottom="12dp" android:background="@drawable/bg_card">
+            android:layout_marginBottom="10dp" android:background="@drawable/bg_card">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="단말기 정보 (V1.5 패킷)" android:textSize="13sp" android:textStyle="bold"
+                android:textColor="@color/accent" android:layout_marginBottom="12dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="6dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="IMEI" android:textSize="10sp" android:textColor="@color/muted"/>
+                    <EditText android:id="@+id/etImei" android:layout_width="match_parent"
+                        android:layout_height="44dp" android:text="123456789012345"
+                        android:textColor="@color/text_color" android:textSize="12sp"
+                        android:fontFamily="monospace" android:background="@drawable/bg_card"
+                        android:padding="8dp" android:inputType="number"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="IMSI" android:textSize="10sp" android:textColor="@color/muted"/>
+                    <EditText android:id="@+id/etImsi" android:layout_width="match_parent"
+                        android:layout_height="44dp" android:text="991231234567890"
+                        android:textColor="@color/text_color" android:textSize="12sp"
+                        android:fontFamily="monospace" android:background="@drawable/bg_card"
+                        android:padding="8dp" android:inputType="number"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="6dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="단말기 일련번호" android:textSize="10sp" android:textColor="@color/muted"/>
+                    <EditText android:id="@+id/etSerial" android:layout_width="match_parent"
+                        android:layout_height="44dp" android:text="2508002425"
+                        android:textColor="@color/text_color" android:textSize="12sp"
+                        android:fontFamily="monospace" android:background="@drawable/bg_card"
+                        android:padding="8dp" android:inputType="number"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="배터리 전압 (V)" android:textSize="10sp" android:textColor="@color/muted"/>
+                    <EditText android:id="@+id/etBattery" android:layout_width="match_parent"
+                        android:layout_height="44dp" android:text="3.6"
+                        android:textColor="@color/text_color" android:textSize="12sp"
+                        android:fontFamily="monospace" android:background="@drawable/bg_card"
+                        android:padding="8dp" android:inputType="numberDecimal"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 전송 상태 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp"
+            android:layout_marginBottom="10dp" android:background="@drawable/bg_card">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="전송 상태" android:textSize="13sp" android:textStyle="bold"
                 android:textColor="@color/accent" android:layout_marginBottom="12dp"/>
-
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:layout_marginBottom="8dp">
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:orientation="vertical">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="전송 성공" android:textSize="10sp" android:textColor="@color/muted"/>
+                        android:text="성공" android:textSize="10sp" android:textColor="@color/muted"/>
                     <TextView android:id="@+id/tvSendOk" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:text="0"
                         android:textSize="22sp" android:textStyle="bold" android:textColor="@color/green"/>
@@ -74,7 +118,7 @@
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:orientation="vertical">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="전송 실패" android:textSize="10sp" android:textColor="@color/muted"/>
+                        android:text="실패" android:textSize="10sp" android:textColor="@color/muted"/>
                     <TextView android:id="@+id/tvSendFail" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:text="0"
                         android:textSize="22sp" android:textStyle="bold" android:textColor="@color/red"/>
@@ -82,39 +126,35 @@
                 <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:orientation="vertical">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="마지막 전송" android:textSize="10sp" android:textColor="@color/muted"/>
+                        android:text="마지막" android:textSize="10sp" android:textColor="@color/muted"/>
                     <TextView android:id="@+id/tvLastSend" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:text="—"
                         android:textSize="11sp" android:textColor="@color/text_color"/>
                 </LinearLayout>
             </LinearLayout>
-
-            <TextView android:id="@+id/tvUdpStatus"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="대기 중" android:textSize="11sp" android:textColor="@color/muted"
+            <TextView android:id="@+id/tvUdpStatus" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="대기 중"
+                android:textSize="11sp" android:textColor="@color/muted"
                 android:fontFamily="monospace" android:padding="8dp"
                 android:background="@drawable/bg_card" android:layout_marginBottom="12dp"/>
-
-            <Button android:id="@+id/btnSendNow"
-                android:layout_width="match_parent" android:layout_height="52dp"
-                android:text="지금 UDP 전송" android:textSize="15sp" android:textStyle="bold"
+            <Button android:id="@+id/btnSendNow" android:layout_width="match_parent"
+                android:layout_height="52dp" android:text="지금 UDP 전송 (V1.5)"
+                android:textSize="15sp" android:textStyle="bold"
                 android:textColor="@color/white" android:backgroundTint="@color/accent2"
-                android:enabled="false"
-                style="@style/Widget.MaterialComponents.Button"/>
+                android:enabled="false" style="@style/Widget.MaterialComponents.Button"/>
         </LinearLayout>
 
-        <!-- 마지막 전송 데이터 -->
+        <!-- 마지막 패킷 HEX -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="vertical" android:padding="16dp"
             android:background="@drawable/bg_card">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:text="마지막 전송 패킷" android:textSize="13sp" android:textStyle="bold"
+                android:text="마지막 전송 패킷 (HEX)" android:textSize="13sp" android:textStyle="bold"
                 android:textColor="@color/accent" android:layout_marginBottom="8dp"/>
-            <TextView android:id="@+id/tvLastPacket"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:text="전송된 데이터 없음"
-                android:textSize="11sp" android:textColor="@color/muted"
-                android:fontFamily="monospace" android:lineSpacingMultiplier="1.6"
+            <TextView android:id="@+id/tvLastPacket" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="전송된 데이터 없음"
+                android:textSize="10sp" android:textColor="@color/muted"
+                android:fontFamily="monospace" android:lineSpacingMultiplier="1.5"
                 android:textIsSelectable="true"/>
         </LinearLayout>
     </LinearLayout>
