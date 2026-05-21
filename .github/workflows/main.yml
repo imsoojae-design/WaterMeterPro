@@ -12,11 +12,12 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - uses: android-actions/setup-android@v3
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
     - name: Build APK
       run: |
         chmod +x gradlew
-        ./gradlew assembleDebug --no-daemon
+        ./gradlew assembleDebug --no-daemon --warning-mode=none
     - name: Rename APK
       run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/watermeter-udp.apk
     - uses: actions/upload-artifact@v4
