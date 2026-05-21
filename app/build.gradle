@@ -1,9 +1,11 @@
 plugins {
     id 'com.android.application'
 }
+
 android {
     namespace 'com.seoul.watermeterpro'
     compileSdk 34
+
     defaultConfig {
         applicationId "com.seoul.watermeterpro"
         minSdk 26
@@ -11,14 +13,17 @@ android {
         versionCode 20
         versionName "2.0"
     }
+
     buildTypes {
         release { minifyEnabled false }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
 }
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
