@@ -12,12 +12,16 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
+    - uses: android-actions/setup-android@v3
+    - name: Install Gradle 8.4
+      run: |
+        wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip
+        unzip -q gradle-8.4-bin.zip -d /opt/gradle
+        echo "/opt/gradle/gradle-8.4/bin" >> $GITHUB_PATH
     - name: Build APK
       run: |
         chmod +x gradlew
-        ./gradlew assembleDebug --no-daemon --warning-mode=none
+        gradle assembleDebug --no-daemon
     - name: Rename APK
       run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/watermeter-udp.apk
     - uses: actions/upload-artifact@v4
